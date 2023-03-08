@@ -13,7 +13,7 @@ import search from "../screens/search";
 
 const TabBarNavigator = createBottomTabNavigator();
 
-const TabNavigator = () => {
+export const TabNavigator = () => {
     return (
         <TabBarNavigator.Navigator>
             <TabBarNavigator.Screen name="tweets" component={tweets}/>
@@ -24,7 +24,7 @@ const TabNavigator = () => {
     )
 }
 
-const AppNavigator = () => {
+export const AppNavigator = () => {
     return(
         <NavigationContainer>
             <TabNavigator/>
@@ -32,4 +32,4 @@ const AppNavigator = () => {
     )
 }
 
-export default AppNavigator;
+//export default AppNavigator;
