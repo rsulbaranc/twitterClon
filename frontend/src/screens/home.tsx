@@ -4,13 +4,9 @@ import {TabNavigator, AppNavigator }from '../navigation/AppNavigator';
 
 const home = () => {
   return (
-    <View >
-      <View style={styles.container}>
+
+   <View style={styles.container}>
       <Text>Hola mundo! Home</Text>
-      </View>
-{/*       <View>
-        <AppNavigator/>
-      </View>  */}
     </View>
     
   );
@@ -24,6 +20,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginStart: 130
    },
+   tittle: {
+    fontSize: 30,
+   }
 });
 
 export default home;
