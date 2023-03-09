@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native';
 import {TabNavigator, AppNavigator }from '../navigation/AppNavigator';
 
+
 const home = () => {
   return (
 

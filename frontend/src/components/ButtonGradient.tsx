@@ -13,17 +13,19 @@ const ButtonGradient = () => {
         style={styles.button}
         >
         <Text style={styles.text}>Login</Text>
-      </LinearGradient>
+        </LinearGradient>
         </TouchableOpacity>
     )
 }
 
 const styles = StyleSheet.create({
     container: { 
-   /*      flex: 1, */
+        alignItems: 'center',
+        width: 200,
+        marginTop: 60
     },
     button: {
-        width: '80%',
+        width: '80%' ,
         height: 50,
         borderRadius: 25,
         padding: 10,
@@ -31,7 +33,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     text: {
-        fontSize: 14,
+        fontSize: 15,
         color: '#fff',
     }
 });
