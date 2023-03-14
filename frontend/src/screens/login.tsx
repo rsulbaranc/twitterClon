@@ -9,19 +9,24 @@ import {
 } from "react-native";
 import ButtonGradient from "../components/ButtonGradient";
 import Logo from "../../assets/logo.png";
-
+//const logo = require('../../assets/logo.png')
 const login = () => {
   return (
-    <View style={styles.container} >
-      <Image source={Logo} style={styles.logo} resizeMode="contain"/>
+    <View style={styles.container}>
+      <Image source={Logo} style={styles.logo} resizeMode="contain" />
       <Text style={styles.title}>Login</Text>
       <Text style={styles.subtitle}>sign in to your account</Text>
       <TextInput placeholder="your@email.com" style={styles.textInputs} />
-      <TextInput placeholder="password" style={styles.textInputs} secureTextEntry={true} />
-      <ButtonGradient/>
+      <TextInput
+        placeholder="password"
+        style={styles.textInputs}
+        secureTextEntry={true}
+      />
+      <ButtonGradient />
 
-      <Text style={styles.dontHaveAnAccount}>Don't have an acount? Create one</Text>
-
+      <Text style={styles.dontHaveAnAccount}>
+        Don't have an acount? Create one
+      </Text>
     </View>
   );
 };
@@ -58,7 +63,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   logo: {
-    width: '60%',
+    width: "60%",
     height: 200,
   },
 });
