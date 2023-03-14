@@ -6,6 +6,7 @@ import {
   View,
   TextInput,
   Image,
+  TouchableOpacity
 } from "react-native";
 import ButtonGradient from "../components/ButtonGradient";
 import Logo from "../../assets/logo.png";
@@ -22,6 +23,10 @@ const Login = () => {
     navigation.navigate('TabNavigator');
   }
 
+  const onRegisterPress = () => {
+    navigation.navigate('Register');
+  }
+
   return (
     <View style={styles.container}>
       <Image source={Logo} style={styles.logo} resizeMode="contain" />
@@ -35,9 +40,11 @@ const Login = () => {
       />
       <ButtonGradient  onPress={onLoginPress} text={'Login'}/>
 
-      <Text style={styles.dontHaveAnAccount}>
-        Don't have an acount? Create one
-      </Text>
+      <TouchableOpacity onPress={onRegisterPress} >
+        <Text style={styles.dontHaveAnAccount}>
+          Don't have an acount? Create one just now!
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
