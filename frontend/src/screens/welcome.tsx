@@ -10,33 +10,32 @@ import {
 import ButtonGradient from "../components/ButtonGradient";
 import Logo from "../../assets/logo.png";
 import { useNavigation } from "@react-navigation/native";
-//const logo = require('../../assets/logo.png')
 
 
 
-const Login = () => {
+
+const Welcome = () => {
 
   const navigation = useNavigation();
 
   const onLoginPress = () => {
-    navigation.navigate('TabNavigator');
+    navigation.navigate('Login');
+  }
+
+  const onRegisterPress = () => {
+    navigation.navigate('Register');
   }
 
   return (
     <View style={styles.container}>
       <Image source={Logo} style={styles.logo} resizeMode="contain" />
-      <Text style={styles.title}>Login</Text>
-      <Text style={styles.subtitle}>sign in to your account</Text>
-      <TextInput placeholder="your@email.com" style={styles.textInputs} />
-      <TextInput
-        placeholder="password"
-        style={styles.textInputs}
-        secureTextEntry={true}
-      />
-      <ButtonGradient  onPress={onLoginPress} text={'Login'}/>
-
+      <Text style={styles.title}>Hello!</Text>
+      <Text style={styles.subtitle}>Welcome to TwitterClone</Text>
+      <ButtonGradient  onPress={onLoginPress} text={'Login'} />
+      <ButtonGradient  onPress={onRegisterPress} text={'Register'}/>
+  
       <Text style={styles.dontHaveAnAccount}>
-        Don't have an acount? Create one
+      The best place to say anything
       </Text>
     </View>
   );
@@ -77,6 +76,9 @@ const styles = StyleSheet.create({
     width: "60%",
     height: 200,
   },
+  button: {
+    marginTop: 60,
+  },
 });
 
-export default Login;
+export default Welcome;

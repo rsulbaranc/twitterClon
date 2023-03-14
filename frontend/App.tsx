@@ -1,15 +1,15 @@
 import React from 'react';
-import home from './src/screens/home'
-import { AppNavigator } from './src/navigation/AppNavigator';
-import login from './src/screens/login';
+import welcome from './src/screens/welcome'
+import Login from './src/screens/login';
 import { RollInLeft } from 'react-native-reanimated';
+import NavigationMain from './src/navigation/NavigationMain';
 
 
-const Screen1 = login
+const Screen1 = Login
 
 export default function App({}) {
   return (
-    <Screen1/>
-
+/*     <Screen1/> */
+    <NavigationMain/>
   );
 }

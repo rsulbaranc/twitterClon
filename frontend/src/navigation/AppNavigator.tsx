@@ -24,12 +24,12 @@ export const TabNavigator = () => {
     )
 }
 
-export const AppNavigator = () => {
+/* export const AppNavigator = () => {
     return(
         <NavigationContainer>
             <TabNavigator/>
         </NavigationContainer>
     )
-}
+} */
 
 //export default AppNavigator;
