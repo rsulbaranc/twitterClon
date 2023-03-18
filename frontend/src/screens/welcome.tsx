@@ -19,11 +19,11 @@ const Welcome = () => {
   const navigation = useNavigation();
 
   const onLoginPress = () => {
-    navigation.navigate('Login');
+    navigation.navigate('Login' as never);
   }
 
   const onRegisterPress = () => {
-    navigation.navigate('Register');
+    navigation.navigate('Register' as never);
   }
 
   return (

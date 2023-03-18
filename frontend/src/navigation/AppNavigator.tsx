@@ -10,13 +10,14 @@ import newTweet from "../screens/newTweet";
 import profile from "../screens/profile";
 import tweets from "../screens/tweets";
 import search from "../screens/search";
+import tweetsScreen from "../screens/tweets";
 
 const TabBarNavigator = createBottomTabNavigator();
 
 export const TabNavigator = () => {
     return (
         <TabBarNavigator.Navigator>
-            <TabBarNavigator.Screen name="tweets" component={tweets}/>
+            <TabBarNavigator.Screen name="tweetsScreen" component={tweetsScreen}/>
             <TabBarNavigator.Screen name="profile" component={profile}/>
             <TabBarNavigator.Screen name="newTweet" component={newTweet}/>
             <TabBarNavigator.Screen name="search" component={search}/>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   StatusBar,
   StyleSheet,
@@ -10,30 +10,58 @@ import {
 } from "react-native";
 import ButtonGradient from "../components/ButtonGradient";
 import { useNavigation } from "@react-navigation/native";
-//const logo = require('../../assets/logo.png')
+import { registerUser } from "../../api";
 
 
 
-const Register = () => {
 
-  const navigation = useNavigation();
+const Register = ({navigation}: any) => {
+
+  const [data, setData] = useState({
+    name: '',
+    lastName: '',
+    email: '',
+    password: '',
+    username: ''
+  })
+
+  const handleChange = (dataName: string, value: string) => setData({...data, [dataName]: value});
+
 
   const onRegisterPress = () => {
-    navigation.navigate('Login');
+    registerUser(data);
+    navigation.navigate('Login' as never);
   }
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Sign Up</Text>
       <Text style={styles.subtitle}>Create a new account</Text>
-      <TextInput placeholder="First Name" style={styles.textInputs} />
-      <TextInput placeholder="Last Name" style={styles.textInputs} />
-      <TextInput placeholder="About You" style={styles.textInputs} />
-      <TextInput placeholder="your@email.com" style={styles.textInputs} />
+      <TextInput 
+      placeholder="First Name" 
+      style={styles.textInputs} 
+      onChangeText={(text) => handleChange('name', text)}
+      />
+      <TextInput 
+      placeholder="Last Name" 
+      style={styles.textInputs} 
+      onChangeText={(text) => handleChange('lastName', text)}
+      />
+      <TextInput 
+      placeholder="username" 
+      style={styles.textInputs} 
+      onChangeText={(text) => handleChange('username', text)}
+      />
+      <TextInput 
+      placeholder="your@email.com" 
+      style={styles.textInputs} 
+      onChangeText={(text) => handleChange('email', text)}
+      />
       <TextInput
         placeholder="password"
         style={styles.textInputs}
         secureTextEntry={true}
+        onChangeText={(text) => handleChange('password', text)}
       />
       <ButtonGradient  onPress={onRegisterPress} text={'Sign Up'}/>
 

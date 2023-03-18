@@ -20,7 +20,7 @@ const NewTweet = () => {
 
   const onTweetPress = () => {
     console.warn("Estoy tocando este boton")
-    navigation.navigate('TabNavigator');
+    navigation.navigate('TabNavigator' as never);
   }
   const [value, onChangeText] = React.useState('Something new to say today?');
 

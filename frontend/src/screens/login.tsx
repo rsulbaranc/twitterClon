@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   StatusBar,
   StyleSheet,
@@ -11,20 +11,31 @@ import {
 import ButtonGradient from "../components/ButtonGradient";
 import Logo from "../../assets/logo.png";
 import { useNavigation } from "@react-navigation/native";
-//const logo = require('../../assets/logo.png')
+import { loginUser } from "../../api";
+
 
 
 
 const Login = () => {
 
+  const [data, setData] = useState({
+    username: '',
+    password: '',
+  })
+
+  const handleChange = (dataName: string, value: string) => setData({...data, [dataName]: value});
+
+
   const navigation = useNavigation();
 
-  const onLoginPress = () => {
-    navigation.navigate('TabNavigator');
+  const onLoginPress = async () => {
+    const res = await loginUser(data);
+    console.log(res)
+    /* navigation.navigate('TabNavigator' as never); */
   }
 
   const onRegisterPress = () => {
-    navigation.navigate('Register');
+    navigation.navigate('Register' as never);
   }
 
   return (
@@ -32,11 +43,16 @@ const Login = () => {
       <Image source={Logo} style={styles.logo} resizeMode="contain" />
       <Text style={styles.title}>Login</Text>
       <Text style={styles.subtitle}>sign in to your account</Text>
-      <TextInput placeholder="your@email.com" style={styles.textInputs} />
+      <TextInput 
+      placeholder="your@email.com" 
+      style={styles.textInputs} 
+      onChangeText={(text) => handleChange('username', text)}
+      />
       <TextInput
         placeholder="password"
         style={styles.textInputs}
         secureTextEntry={true}
+        onChangeText={(text) => handleChange('password', text)}
       />
       <ButtonGradient  onPress={onLoginPress} text={'Login'}/>
 
