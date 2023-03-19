@@ -29,9 +29,16 @@ const Login = () => {
   const navigation = useNavigation();
 
   const onLoginPress = async () => {
-    const res = await loginUser(data);
-    console.log(res)
-    /* navigation.navigate('TabNavigator' as never); */
+    const res = await (loginUser(data));
+    //const objectRes = JSON.parse(res);
+/*     if (objectRes.msg == !"") {
+    alert('Invalid username or password. Please try again.')
+  } else { */
+    navigation.navigate('TabNavigator' as never);
+  //}
+    /* 
+    console.log(objectRes.msg); */
+    
   }
 
   const onRegisterPress = () => {
@@ -44,7 +51,7 @@ const Login = () => {
       <Text style={styles.title}>Login</Text>
       <Text style={styles.subtitle}>sign in to your account</Text>
       <TextInput 
-      placeholder="your@email.com" 
+      placeholder="username" 
       style={styles.textInputs} 
       onChangeText={(text) => handleChange('username', text)}
       />
