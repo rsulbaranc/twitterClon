@@ -29,6 +29,7 @@ const Login = () => {
   const navigation = useNavigation();
 
   const onLoginPress = async () => {
+
     const res = await loginUser(data);
     //const resObject = JSON.parse(res);
     console.log(res)
@@ -46,7 +47,7 @@ const Login = () => {
       <Text style={styles.title}>Login</Text>
       <Text style={styles.subtitle}>sign in to your account</Text>
       <TextInput 
-      placeholder="your@email.com" 
+      placeholder="username" 
       style={styles.textInputs} 
       onChangeText={(text) => handleChange('username', text)}
       />
