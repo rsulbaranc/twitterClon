@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   StatusBar,
   StyleSheet,
@@ -10,38 +10,42 @@ import {
 } from "react-native";
 import ButtonGradient from "../components/ButtonGradient";
 import { useNavigation } from "@react-navigation/native";
-//const logo = require('../../assets/logo.png')
+import { createTwet } from "../../api";
 
 
 
-const NewTweet = () => {
+const NewTweet = ({navigation}: any) => {
 
-  const navigation = useNavigation();
+  const [data, setData] = useState({
+    owner: 'Ricardo',
+    description: '',
+  })
 
-  const onTweetPress = () => {
-    console.warn("Estoy tocando este boton")
-    navigation.navigate('TabNavigator' as never);
+  const handleChange = (dataName: string, value: string) => setData({...data, [dataName]: value});
+
+
+  const onPressTweet = async () => {
+    //await createTwet(data);
+    //console.log('esta funcionando');
+    console.log(data)
+    //navigation.navigate('TabNavigator' as never);
   }
-  const [value, onChangeText] = React.useState('Something new to say today?');
 
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Write a new Tweet</Text>
-{/*       <Text style={styles.subtitle}>Write a new Tweet</Text>  */}      
-{/*       <TextInput placeholder="your@email.com" style={styles.textInputs} /> */}
       <TextInput
         editable
         multiline
         numberOfLines={4}
         maxLength={140}
-        onChangeText={text => onChangeText(text)}
-        value={value}
+        onChangeText={(text) => handleChange('description', text)}
         style={styles.textInputs}
       />
 
-      <ButtonGradient  onPress={onTweetPress} text={'Tweet'}/>
-      <ButtonGradient  onPress={onTweetPress} text={'Upload Image'}/>
+      <ButtonGradient  onPress={onPressTweet} text={'Tweet'}/>
+      <ButtonGradient  onPress={onPressTweet} text={'Upload Image'}/>
     </View>
   );
 };

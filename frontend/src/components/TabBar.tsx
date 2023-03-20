@@ -29,14 +29,14 @@ const TabBar = ({ state, navigation }: BottomTabBarProps) => {
             };
             let iconName;
             switch (route.name) {
-                case "tweets":
+                case "feed":
                     iconName = "home";
                     break;
                 case "profile":
-                    iconName = "pie-chart";
+                    iconName = "person";
                     break;
-                case 'search':
-                    iconName = 'cellular';
+                case 'newTweet':
+                    iconName = 'pencil';
                     break;
                 default:
                     iconName = 'person';

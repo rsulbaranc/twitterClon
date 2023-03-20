@@ -64,3 +64,19 @@ export const editProfile = async (a: any) => {
   });
   return await res.json();
 };
+
+//Create a tweet
+interface newTweet {
+  owner: string;
+  description: string;
+  /* picture?: string;  */
+}
+
+export const createTwet = async (tweet: newTweet) => {
+  const res = await fetch(API + "signup", {
+    method: "POST",
+    headers: { Accept: "application/json", "Content-Type": "application/json" },
+    body: JSON.stringify(tweet),
+  });
+  return await res.json();
+}
