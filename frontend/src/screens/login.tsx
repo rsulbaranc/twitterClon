@@ -29,16 +29,12 @@ const Login = () => {
   const navigation = useNavigation();
 
   const onLoginPress = async () => {
-    const res = await (loginUser(data));
-    //const objectRes = JSON.parse(res);
-/*     if (objectRes.msg == !"") {
-    alert('Invalid username or password. Please try again.')
-  } else { */
+
+    const res = await loginUser(data);
+    //const resObject = JSON.parse(res);
+    console.log(res)
+    //if (res)
     navigation.navigate('TabNavigator' as never);
-  //}
-    /* 
-    console.log(objectRes.msg); */
-    
   }
 
   const onRegisterPress = () => {

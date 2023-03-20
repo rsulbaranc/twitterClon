@@ -1,7 +1,9 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useState } from 'react'
+import { StyleSheet, Text, View, Image } from 'react-native';
+import * as ImagePicker from "expo-image-picker";
 
 const profile = () => {
+
   return (
     <View style={styles.container}>
       <Text>Hola mundo! Profile</Text>
