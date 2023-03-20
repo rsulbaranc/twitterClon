@@ -1,7 +1,7 @@
 const API = "http://192.168.0.129:3000/";
 
 let token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MThkN2RkZDU1YTQwNjJlZTk3ODg3YiIsInVzZXJuYW1lIjoidG9tYXMiLCJpYXQiOjE2NzkzNDk3MzIsImV4cCI6MTY3OTk1NDUzMn0.11Ay4UJ2PV1dOXAu1NC5vFCEyd5XoNj1fD8XxlHfIc8";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MThkYWYzZDU1YTQwNjJlZTk3ODg4YyIsInVzZXJuYW1lIjoiZGVtbzIiLCJpYXQiOjE2NzkzNTA4MzUsImV4cCI6MTY3OTk1NTYzNX0._LKSmfQBS7Pgt07foHH_wdd8Ba2my8dIovk_qwD0Jfc";
 
 //Registro
 interface userCreate {
@@ -73,9 +73,13 @@ interface newTweet {
 }
 
 export const createTwet = async (tweet: newTweet) => {
-  const res = await fetch(API + "signup", {
+  const res = await fetch(API + "tweet", {
     method: "POST",
-    headers: { Accept: "application/json", "Content-Type": "application/json" },
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    },
     body: JSON.stringify(tweet),
   });
   return await res.json();

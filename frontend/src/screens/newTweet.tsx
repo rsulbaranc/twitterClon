@@ -25,9 +25,9 @@ const NewTweet = ({navigation}: any) => {
 
 
   const onPressTweet = async () => {
-    //await createTwet(data);
-    //console.log('esta funcionando');
-    console.log(data)
+    const res = await createTwet(data);
+    console.log(data);
+    console.log(res)
     //navigation.navigate('TabNavigator' as never);
   }
 
