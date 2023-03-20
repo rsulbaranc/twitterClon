@@ -30,8 +30,10 @@ const Login = () => {
 
   const onLoginPress = async () => {
     const res = await loginUser(data);
+    //const resObject = JSON.parse(res);
     console.log(res)
-    /* navigation.navigate('TabNavigator' as never); */
+    //if (res)
+    navigation.navigate('TabNavigator' as never);
   }
 
   const onRegisterPress = () => {
