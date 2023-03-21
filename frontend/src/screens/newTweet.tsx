@@ -12,12 +12,16 @@ import ButtonGradient from "../components/ButtonGradient";
 import { useNavigation } from "@react-navigation/native";
 import { createTwet } from "../../api";
 
+let nameUser: string
 
+export const saveUser = (name: string) => {
+  nameUser = name
+}
 
 const NewTweet = ({navigation}: any) => {
 
   const [data, setData] = useState({
-    owner: 'Ricardo',
+    owner: nameUser,
     description: '',
   })
 
