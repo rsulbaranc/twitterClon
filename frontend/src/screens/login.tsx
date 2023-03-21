@@ -11,7 +11,7 @@ import {
 import ButtonGradient from "../components/ButtonGradient";
 import Logo from "../../assets/logo.png";
 import { useNavigation } from "@react-navigation/native";
-import { loginUser } from "../../api";
+import { loginUser, saveToken } from "../../api";
 
 
 
@@ -28,13 +28,24 @@ const Login = () => {
 
   const navigation = useNavigation();
 
+
   const onLoginPress = async () => {
 
-    const res = await loginUser(data);
-    //const resObject = JSON.parse(res);
-    console.log(res)
-    //if (res)
-    navigation.navigate('TabNavigator' as never);
+    let resObjet : {
+      msg?: '',
+      token?: ''
+    }
+
+    resObjet = await loginUser(data);
+    console.log(resObjet.msg)
+    if (resObjet.msg === "Invalid username or password" ){
+      alert('Invalid username or password. Please try again');
+    } else {
+      console.log(resObjet.token)
+      saveToken(resObjet.token)
+      navigation.navigate('TabNavigator' as never);
+    }
+    
   }
 
   const onRegisterPress = () => {

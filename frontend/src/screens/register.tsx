@@ -28,9 +28,19 @@ const Register = ({navigation}: any) => {
   const handleChange = (dataName: string, value: string) => setData({...data, [dataName]: value});
 
 
-  const onRegisterPress = () => {
-    registerUser(data);
-    navigation.navigate('Login' as never);
+  const onRegisterPress = async () => {
+
+    let resObject : {
+      msg?: '',
+    }
+
+    const res = await registerUser(data);
+    
+    if (resObject.msg == 'Some fields are empty.') {
+      alert('Some fields are empty. Please complete all fields');
+    } else {
+      navigation.navigate('Login' as never);
+    }
   }
 
   return (

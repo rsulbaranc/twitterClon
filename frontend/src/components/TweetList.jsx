@@ -1,8 +1,9 @@
 import { FlatList, RefreshControl } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import TweetItem from './TweetItem'
+import { getTweets } from '../../api';
 
-const API = "http://192.168.0.129:3000/";
+const API = "https://twitter-clone-production-5080.up.railway.app/";
 
 let token =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MThkYWYzZDU1YTQwNjJlZTk3ODg4YyIsInVzZXJuYW1lIjoiZGVtbzIiLCJpYXQiOjE2NzkzNTA4MzUsImV4cCI6MTY3OTk1NTYzNX0._LKSmfQBS7Pgt07foHH_wdd8Ba2my8dIovk_qwD0Jfc";
@@ -14,15 +15,15 @@ const TweetList = () => {
   const [refreshing, setRefreshing] = useState(false);
 
   const loadTweet = async () => {
-    const res = await fetch('http://192.168.0.129:3000/tweet', {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + token,
-      }
-    });
-    const data = await res.json()
+    const res = await fetch(API + 'tweet', {
+    method: 'GET',
+    headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + token,
+  }
+});
+const data = await res.json()
     setTweets(data)
   };
 

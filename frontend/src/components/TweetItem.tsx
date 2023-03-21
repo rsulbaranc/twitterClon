@@ -6,7 +6,7 @@ const TweetItem = ( {tweet}: any) => {
   const date = (tweet.create_date).substring(-1, 10);
   return (
     <View style={styles.itemContainer}>
-      <Text>owner: {tweet.owner}</Text>
+      <Text>@{tweet.owner}</Text>
       <Text>{date}</Text>
       <Text>{tweet.description}</Text>
     </View>
